@@ -1,0 +1,52 @@
+<div class="modal">
+    <header class="bar bar-header bar-dark">
+        <h1 class="title">Media Player</h1>
+        <button class="button button-clear button-positive" ng-click="closePlayModal()">Close</button>
+    </header>
+    <ion-content has-header="true">
+        <div class="padding">
+            <div>
+                <blockquote>
+                    <p>Now Playing {{kind | capitalize}} - {{title | capitalize}}</p>
+
+                    <small>by <cite>{{comedian}}</cite></small>
+                </blockquote>
+                <video id="vid" width="320" height="240" video-loader autoplay controls ng-if="kind==='mp4'">
+                    {{url}}
+                    <source id="vidsrc" ng-src="url" type="video/mp4">
+                </video>
+                <iframe id="vimeoiframe" ng-src="{{url}}" width="320" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ng-if="kind==='vimeo'"></iframe>
+                <iframe id="youtubeiframe" ng-src="{{url}}" width="320" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ng-if="kind==='youtube'"></iframe>
+
+            </div>
+            <div>           
+                <p>
+                  <a href="#" class="subdued">{{likes}} Likes</a>
+                  <a href="#" class="subdued">{{comments}} Comments</a>
+                </p>            
+              <div class="item tabs tabs-secondary tabs-icon-left">
+                <div class="tab-item" >
+                  &nbsp&nbsp   
+                </div>
+                <a class="tab-item assertive" ng-click="toggleFavorite(video_id,kind);fav=fav==video_id?'':video_id;">
+                  <i ng-class="fav==video_id ?'icon ion-ios7-star':'icon ion-ios7-star-outline'"></i>
+                  <span ng-show='fav==video_id'>Remove Favorite</span><span ng-show='fav!=video_id'>Add Favorite</span>
+                </a>
+                <a class="tab-item" href="#">
+                   &nbsp&nbsp 
+                </a>
+              </div>  
+              <!--
+              <div class="item tabs tabs-secondary tabs-icon-left">
+                  <label class="item-input-wrapper">
+                    <input type="text" placeholder="Comment" ng-model="mymodal.comment">
+                  </label>
+                  <button class="button button-clear" ng-click="addComment(video_id)">
+                    Add
+                  </button>
+              </div> 
+              -->             
+            </div>          
+        </div>
+    </ion-content>
+</div>

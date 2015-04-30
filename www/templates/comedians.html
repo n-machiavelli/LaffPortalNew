@@ -1,0 +1,13 @@
+<ion-view class="bgDark" title="Comedians" left-buttons="leftButtons" right-buttons="rightButtons">
+<ion-content has-header="true" padding="true">
+<div class="list">
+
+    <a class="item item-thumbnail-left" hrefno="#/tab/home/comedian/{{comedian.comedian_id}}" ng-repeat="comedian in comedians">
+      <img src="{{comedian.comedian_imageurl}}" height="85" width="85">
+      <h2>{{comedian.comedian_name}}</h2>
+      <p>{{comedian.comedian_name}}</p>
+    </a>
+
+</div>
+</ion-content>
+</ion-view>
